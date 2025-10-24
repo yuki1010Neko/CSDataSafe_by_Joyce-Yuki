@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS DataSafe Pricing - Simple, Transparent Pricing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #005A9C 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo .cs {
+            color: white;
+            background: #EF3E42;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .logo .datasafe {
+            color: #A5ACAF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #A5ACAF;
+        }
+
+        .cta-button {
+            background: #EF3E42;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #d63538;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 62, 66, 0.3);
+        }
+
+        /* Hero Section */
+        .pricing-hero {
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .pricing-hero-subtitle {
+            font-size: 1.2rem;
+            color: #A5ACAF;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .pricing-calculator {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .calculator-input {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            width: 80px;
+            text-align: center;
+        }
+
+        .calculator-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .estimate-result {
+            background: #EF3E42;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* Management Options */
+        .management-options {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .management-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .management-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .management-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #005A9C, #EF3E42);
+        }
+
+        .management-card h3 {
+            color: #005A9C;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .management-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-left: 3px solid #005A9C;
+            background: #f8f9fa;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: #005A9C;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* Pricing Tables */
+        .pricing-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: #005A9C;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-comparison {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #005A9C 0%, #004080 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+        }
+
+        .tier-column {
+            padding: 2rem;
+            border-right: 1px solid #eee;
+            text-align: center;
+            position: relative;
+        }
+
+        .tier-column:last-child {
+            border-right: none;
+        }
+
+        .tier-column.popular {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #005A9C;
+            margin-bottom: 0.5rem;
+        }
+
+        .popular-badge {
+            background: #EF3E42;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .tier-features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .tier-feature {
+            margin: 1rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .management-pricing {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #eee;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .pricing-label {
+            font-weight: bold;
+            color: #005A9C;
+        }
+
+        .pricing-amount {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #EF3E42;
+        }
+
+        .pricing-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Additional Services */
+        .additional-services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #EF3E42;
+            margin: 1rem 0;
+        }
+
+        /* Enterprise Section */
+        .enterprise-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .enterprise-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .enterprise-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #A5ACAF;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: #A5ACAF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pricing-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .management-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-column.popular {
+                transform: none;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="cs">CS</span><span class="datasafe">DATASAFE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href=Solutions.html>Solutions</a></li>
+                <li><a href=Pricing.html>Pricing</a></li>
+                <li><a href=Industries.html>Industries</a></li>
+                <li><a href=About.html>About</a></li>
+                <li><a href=Contact.html>Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Quote</a>
+        </nav>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <p class="pricing-hero-subtitle">
+                No hidden fees. No confusing bundles. Just clear pricing for the cybersecurity protection your business needs.
+            </p>
+            
+            <div class="pricing-calculator">
+                <h3 style="margin-bottom: 1rem;">Quick Estimate</h3>
+                <div class="calculator-row">
+                    <span>Workstations:</span>
+                    <input type="number" class="calculator-input" id="workstations" placeholder="10" min="1" max="500">
+                </div>
+                <div class="calculator-row">
+                    <span>Servers:</span>
+                    <input type="number" class="calculator-input" id="servers" placeholder="2" min="0" max="50">
+                </div>
+                <div class="calculator-row">
+                    <span>Management:</span>
+                    <select class="calculator-input" id="management" style="width: 150px;">
+                        <option value="self">Self-Managed</option>
+                        <option value="managed">Calsoft-Managed</option>
+                    </select>
+                </div>
+                <div class="estimate-result" id="estimate">
+                    Monthly Estimate: $XXX - $XXX
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Management Options -->
+    <section class="management-options" id="overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Management Level</h2>
+                <p>Get the CS DataSafe platform with the level of support that fits your team</p>
+            </div>
+            <div class="management-grid">
+                <div class="management-card">
+                    <div class="management-icon">👨‍💻</div>
+                    <h3>Self-Managed</h3>
+                    <p style="margin-bottom: 2rem;">Your IT team operates the CS DataSafe platform</p>
+                    <div class="feature-list">
+                        <div class="feature-item">Complete platform access and training</div>
+                        <div class="feature-item">Your team handles alerts and maintenance</div>
+                        <div class="feature-item">24/7 technical support included</div>
+                        <div class="feature-item">Perfect for organizations with IT capabilities</div>
+                        <div class="feature-item">Lower monthly costs</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <strong style="color: #005A9C; font-size: 1.2rem;">Starting at $25/device/month</strong>
+                    </div>
+                </div>
+                
+                <div class="management-card">
+                    <div class="management-icon">🛡️</div>
+                    <h3>Calsoft-Managed</h3>
+                    <p style="margin-bottom: 2rem;">We operate everything for you using CS DataSafe</p>
+                    <div class="feature-list">
+                        <div class="feature-item">24/7 monitoring and response by our experts</div>
+                        <div class="feature-item">Proactive maintenance and optimization</div>
+                        <div class="feature-item">Incident investigation and guided remediation</div>
+                        <div class="feature-item">Perfect for businesses without dedicated IT</div>
+                        <div class="feature-item">Complete peace of mind</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <strong style="color: #005A9C; font-size: 1.2rem;">Platform + $20/device/month</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workstation Pricing -->
+    <section class="pricing-section" id="workstations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Workstation Protection Pricing</h2>
+                <p>Comprehensive endpoint security for all your computers and laptops</p>
+            </div>
+            
+            <div class="pricing-comparison">
+                <div class="comparison-header">
+                    <h3>Workstation Security Tiers</h3>
+                    <p>Choose the level of protection that matches your risk tolerance</p>
+                </div>
+                
+                <div class="tier-grid">
+                    <div class="tier-column">
+                        <div class="tier-name">Basic</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Managed monitoring & patching</div>
+                            <div class="tier-feature">✓ Vulnerability scanning</div>
+                            <div class="tier-feature">✓ Basic threat detection</div>
+                            <div class="tier-feature">✓ Monthly security reporting</div>
+                            <div class="tier-feature">✓ Email support</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$25/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$45/month</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tier-column popular">
+                        <div class="tier-name">Standard</div>
+                        <div class="popular-badge">⭐ Most Popular</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Everything in Basic</div>
+                            <div class="tier-feature">✓ Advanced threat detection (EDR)</div>
+                            <div class="tier-feature">✓ Behavioral analysis</div>
+                            <div class="tier-feature">✓ Incident investigation tools</div>
+                            <div class="tier-feature">✓ Priority support</div>
+                            <div class="tier-feature">✓ Optional MDR add-on available</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$45/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$75/month</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tier-column">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Everything in Standard</div>
+                            <div class="tier-feature">✓ 1TB endpoint backup included</div>
+                            <div class="tier-feature">✓ Guided restore assistance</div>
+                            <div class="tier-feature">✓ Quarterly security reviews</div>
+                            <div class="tier-feature">✓ Advanced compliance reporting</div>
+                            <div class="tier-feature">✓ Priority incident response</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$65/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$95/month</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Pricing -->
+    <section class="pricing-section" id="servers" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Server Protection Pricing</h2>
+                <p>Enterprise-grade security for your critical business servers</p>
+            </div>
+            
+            <div class="pricing-comparison">
+                <div class="comparison-header">
+                    <h3>Server Security Tiers</h3>
+                    <p>Protect your most valuable business assets with comprehensive server security</p>
+                </div>
+                
+                <div class="tier-grid">
+                    <div class="tier-column">
+                        <div class="tier-name">Basic</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Managed RMM & monitoring</div>
+                            <div class="tier-feature">✓ Vulnerability & AD scanning</div>
+                            <div class="tier-feature">✓ Backup monitoring</div>
+                            <div class="tier-feature">✓ Monthly reporting</div>
+                            <div class="tier-feature">✓ Performance monitoring</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$75/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$125/month</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tier-column popular">
+                        <div class="tier-name">Standard</div>
+                        <div class="popular-badge">⭐ Most Popular</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Everything in Basic</div>
+                            <div class="tier-feature">✓ Server-grade EDR</div>
+                            <div class="tier-feature">✓ Advanced threat hunting</div>
+                            <div class="tier-feature">✓ Incident remediation guidance</div>
+                            <div class="tier-feature">✓ Optional MDR add-on available</div>
+                            <div class="tier-feature">✓ Priority support</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$125/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$195/month</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tier-column">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-features">
+                            <div class="tier-feature">✓ Everything in Standard</div>
+                            <div class="tier-feature">✓ 2TB managed offsite backup</div>
+                            <div class="tier-feature">✓ DR runbook creation</div>
+                            <div class="tier-feature">✓ Restore & recovery assistance</div>
+                            <div class="tier-feature">✓ Quarterly security assessments</div>
+                            <div class="tier-feature">✓ Dedicated security engineer</div>
+                        </div>
+                        <div class="management-pricing">
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Self-Managed</div>
+                                    <div class="pricing-details">You handle alerts & maintenance</div>
+                                </div>
+                                <div class="pricing-amount">$175/month</div>
+                            </div>
+                            <div class="pricing-row">
+                                <div>
+                                    <div class="pricing-label">Calsoft-Managed</div>
+                                    <div class="pricing-details">We handle everything</div>
+                                </div>
+                                <div class="pricing-amount">$275/month</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="additional-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Additional Platform Services</h2>
+                <p>Expand your protection with these optional add-on services</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email Security</h3>
+                    <p>Advanced threat protection for Microsoft 365 and Google Workspace</p>
+                    <div class="service-price">$8/user/month</div>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Advanced threat protection</li>
+                        <li>Anti-phishing and safe links</li>
+                        <li>Email encryption</li>
+                        <li>DLP policies</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💾</div>
+                    <h3>Email Backup</h3>
+                    <p>Complete email backup and recovery for business continuity</p>
+                    <div class="service-price">$5/user/month</div>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Unlimited email backup</li>
+                        <li>Point-in-time recovery</li>
+                        <li>eDiscovery capabilities</li>
+                        <li>Compliance reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>MDR Add-On</h3>
+                    <p>24/7 managed detection and response service</p>
+                    <div class="service-price">+$25/device/month</div>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>24/7 SOC monitoring</li>
+                        <li>Threat hunting</li>
+                        <li>Incident response</li>
+                        <li>Forensic analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section class="enterprise-section" id="enterprise">
+        <div class="container">
+            <h2>Enterprise Solutions</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                For organizations with 500+ employees, we offer custom enterprise packages with volume discounts, dedicated support, and advanced compliance features.
+            </p>
+            <div class="enterprise-features">
+                <div class="enterprise-feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                    <h4>Volume Discounts</h4>
+                    <p>Significant savings for large deployments with custom pricing based on your specific needs.</p>
+                </div>
+                <div class="enterprise-feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👨‍💼</div>
+                    <h4>Dedicated Support</h4>
+                    <p>Assigned customer success manager and priority technical support with SLA guarantees.</p>
+                </div>
+                <div class="enterprise-feature">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+                    <h4>Advanced Compliance</h4>
+                    <p>Enhanced reporting, audit trails, and compliance frameworks for regulated industries.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem;">Contact Enterprise Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Security Status</a>
+                    <a href="#">Knowledge Base</a>
+                    <a href="#">Submit Ticket</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security Practices</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ sales@csdatasafe.com</p>
+                    <p>📍 Your Business Address</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CS DataSafe. All rights reserved. | A Calsoft Systems Company</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

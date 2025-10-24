@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact CS DataSafe - Get Your Free Security Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #005A9C 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo .cs {
+            color: white;
+            background: #EF3E42;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .logo .datasafe {
+            color: #A5ACAF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #A5ACAF;
+        }
+
+        .cta-button {
+            background: #EF3E42;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #d63538;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 62, 66, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #A5ACAF;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white { background: white; }
+        .section-gray { background: #f8f9fa; }
+
+        .section h2 {
+            color: #005A9C;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border-top: 6px solid #005A9C;
+            transition: transform 0.3s;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #005A9C;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #005A9C;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #005A9C;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Quick Contact */
+        .quick-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #EF3E42;
+        }
+
+        .quick-icon {
+            font-size: 3rem;
+            color: #EF3E42;
+            margin-bottom: 1rem;
+        }
+
+        .quick-item h4 {
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .quick-item a {
+            color: #005A9C;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .quick-item a:hover {
+            color: #EF3E42;
+        }
+
+        /* Info Items */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: #005A9C;
+            margin-right: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #A5ACAF;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: #A5ACAF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="cs">CS</span><span class="datasafe">DATASAFE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href=Solutions.html>Solutions</a></li>
+                <li><a href=Pricing.html>Pricing</a></li>
+                <li><a href=Industries.html>Industries</a></li>
+                <li><a href=About.html>About</a></li>
+                <li><a href=Contact.html>Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Let's Protect Your Business Together</h1>
+            <p class="hero-subtitle">
+                Ready to simplify your cybersecurity? Our experts are here to answer your questions, assess your needs, and create a protection plan that actually makes sense for your business.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>How Would You Like to Connect?</h2>
+            <p class="section-subtitle">
+                Choose the option that works best for you – no pressure, just honest answers to your cybersecurity questions.
+            </p>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Free Security Assessment</h3>
+                    <p>Get a comprehensive evaluation of your current security posture with personalized recommendations. No obligation, no sales pressure.</p>
+                    <a href="#form" class="cta-button">Request Assessment</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Speak with an Expert</h3>
+                    <p>Talk directly with one of our cybersecurity experts about your specific challenges and how CS DataSafe can help.</p>
+                    <a href="tel:+15551234567" class="cta-button">Call Now: (555) 123-4567</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Custom Demo</h3>
+                    <p>See CS DataSafe in action with a personalized demonstration focused on your industry and business needs.</p>
+                    <a href="#form" class="cta-button">Schedule Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section section-gray" id="form">
+        <div class="container">
+            <h2>Get Started Today</h2>
+            <p class="section-subtitle">
+                Fill out this quick form and we'll get back to you within 24 hours with personalized recommendations for your business.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem;">
+                <div>
+                    <h3 style="color: #005A9C; font-size: 2rem; margin-bottom: 1rem;">Why Choose CS DataSafe?</h3>
+                    <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                        We understand that choosing a cybersecurity partner is a big decision. Here's what you can expect when you work with us.
+                    </p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⚡</div>
+                        <div>
+                            <strong>Quick Response</strong><br>
+                            We respond to all inquiries within 24 hours
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🛡️</div>
+                        <div>
+                            <strong>No Pressure</strong><br>
+                            Just honest advice about cybersecurity
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🎯</div>
+                        <div>
+                            <strong>Personalized</strong><br>
+                            Recommendations tailored to your business
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employees">Number of Employees</label>
+                            <select id="employees" name="employees">
+                                <option value="">Select...</option>
+                                <option value="1-10">1-10</option>
+                                <option value="11-25">11-25</option>
+                                <option value="26-50">26-50</option>
+                                <option value="51-100">51-100</option>
+                                <option value="101-250">101-250</option>
+                                <option value="250+">250+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" name="industry">
+                            <option value="">Select...</option>
+                            <option value="manufacturing">Manufacturing & Logistics</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Tell us about your cybersecurity challenges</label>
+                        <textarea id="message" name="message" placeholder="What keeps you up at night regarding cybersecurity? What are your biggest concerns?"></textarea>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button type="submit" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem;">Get My Free Assessment</button>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin-top: 2rem; font-size: 0.9rem; color: #666; text-align: center;">
+                        <strong>We promise:</strong> 24-hour response • No spam • Honest advice only
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>Need Help Right Now?</h2>
+            <div class="grid grid-3">
+                <div class="quick-item">
+                    <div class="quick-icon">📞</div>
+                    <h4>Call Us</h4>
+                    <p>Speak directly with our team</p>
+                    <a href="tel:+15551234567">(555) 123-4567</a>
+                </div>
+                <div class="quick-item">
+                    <div class="quick-icon">✉️</div>
+                    <h4>Email Us</h4>
+                    <p>Send us your questions</p>
+                    <a href="mailto:sales@csdatasafe.com">sales@csdatasafe.com</a>
+                </div>
+                <div class="quick-item">
+                    <div class="quick-icon">🚨</div>
+                    <h4>Security Emergency</h4>
+                    <p>24/7 incident response</p>
+                    <a href="tel:+15551234911">(555) 123-4911</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #005A9C; margin-bottom: 1rem; font-size: 1.1rem;">How quickly can you respond to a security incident?</h4>
+                    <p style="color: #666;">Our 24/7 SOC can respond to critical incidents within 4 minutes. For Calsoft-managed customers, we immediately begin containment while keeping you informed every step of the way.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #005A9C; margin-bottom: 1rem; font-size: 1.1rem;">What makes your pricing different from other providers?</h4>
+                    <p style="color: #666;">We believe in transparent, simple pricing. No hidden fees, no surprise add-ons, no confusing product names. You pay for what you need, and you can scale up or down as your business changes.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #005A9C; margin-bottom: 1rem; font-size: 1.1rem;">Do you work with businesses that already have some security tools?</h4>
+                    <p style="color: #666;">Absolutely! We can integrate with your existing security investments and fill any gaps. Our assessment will show you what's working, what's not, and how to optimize your current setup.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #005A9C; margin-bottom: 1rem; font-size: 1.1rem;">How do you help businesses without IT staff?</h4>
+                    <p style="color: #666;">This is exactly why we created CS DataSafe. Our Calsoft-managed service acts as your IT security department. We handle everything from monitoring to incident response, so you can focus on running your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section section-white">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2>Ready to Secure Your Business?</h2>
+                <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                    Join 500+ businesses who trust CS DataSafe to keep them protected. Start with a free security assessment – no strings attached.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="tel:+15551234567" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem;">Call (555) 123-4567</a>
+                    <a href="mailto:sales@csdatasafe.com" class="cta-button" style="background: transparent; border: 2px solid #005A9C; color: #005A9C; font-size: 1.2rem; padding: 1rem 2rem;">Email Us</a>
+                </div>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-top: 2rem; font-style: italic; color: #666;">
+                    <strong>Risk-Free Promise:</strong> Free assessment • No contracts • Cancel anytime • 30-day satisfaction guarantee
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours with your free security assessment.');
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Security Status</a>
+                    <a href="#">Knowledge Base</a>
+                    <a href="#">Submit Ticket</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security Practices</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ sales@csdatasafe.com</p>
+                    <p>📍 Your Business Address</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CS DataSafe. All rights reserved. | A Calsoft Systems Company</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS DataSafe Solutions - Complete Cybersecurity Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #005A9C 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo .cs {
+            color: white;
+            background: #EF3E42;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .logo .datasafe {
+            color: #A5ACAF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #A5ACAF;
+        }
+
+        .cta-button {
+            background: #EF3E42;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #d63538;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 62, 66, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #A5ACAF;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white { background: white; }
+        .section-gray { background: #f8f9fa; }
+        .section-blue { 
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+        }
+
+        .section h2 {
+            color: #005A9C;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-blue h2 {
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-blue .section-subtitle {
+            color: #A5ACAF;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .card-blue {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .card-blue .card-icon {
+            color: #A5ACAF;
+        }
+
+        .card-blue h3 {
+            color: #A5ACAF;
+        }
+
+        /* Security Layers */
+        .layers-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .layer-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .layer-number {
+            background: #EF3E42;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .timeline-number {
+            background: #005A9C;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h3 {
+            color: #005A9C;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #A5ACAF;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: #A5ACAF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="cs">CS</span><span class="datasafe">DATASAFE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href=Solutions.html>Solutions</a></li>
+                <li><a href=Pricing.html>Pricing</a></li>
+                <li><a href=Industries.html>Industries</a></li>
+                <li><a href=About.html>About</a></li>
+                <li><a href=Contact.html>Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Complete Cybersecurity Solutions</h1>
+            <p class="hero-subtitle">
+                Everything your business needs to stay secure, unified in one platform. No more juggling vendors, no more security gaps, no more confusion.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solutions Overview -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>Three Core Pillars of Protection</h2>
+            <p class="section-subtitle">
+                CS DataSafe builds your cybersecurity foundation on three essential pillars that work together seamlessly.
+            </p>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Threat Detection & Response</h3>
+                    <p>Advanced endpoint protection that monitors every device, detects threats in real-time, and responds immediately to keep your business safe.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💾</div>
+                    <h3>Data Backup & Recovery</h3>
+                    <p>Automated, tested backups ensure your business data is always protected and recoverable. Sleep better knowing your data is truly safe.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>Continuous Monitoring</h3>
+                    <p>24/7 oversight of your entire IT environment with expert analysis, so you know immediately when something needs attention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>What's Included in CS DataSafe</h2>
+            <p class="section-subtitle">
+                Every feature you need, with names that actually make sense
+            </p>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">🖥️</div>
+                    <h3>Endpoint Detection & Response (EDR)</h3>
+                    <p>Not "CyberShield Pro Max" – just honest EDR. Advanced threat detection on every computer, laptop, and mobile device in your organization.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Vulnerability Management</h3>
+                    <p>Continuous scanning to find security weaknesses before attackers do. We tell you what's broken and how to fix it in plain English.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3>Email Security</h3>
+                    <p>Stop phishing attacks and malicious emails before they reach your team. Protects Microsoft 365 and Google Workspace environments.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔐</div>
+                    <h3>Identity Protection</h3>
+                    <p>Multi-factor authentication, password management, and user monitoring to ensure only the right people access your systems.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Network Security</h3>
+                    <p>Firewall management, intrusion detection, and network monitoring to protect your business at the perimeter and inside.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Security Awareness Training</h3>
+                    <p>Education and simulated phishing tests to turn your employees into your strongest line of defense against cyber threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>Built on Industry-Leading Technology</h2>
+            <p class="section-subtitle">
+                We partner with the best security vendors so you don't have to figure out which tools to choose
+            </p>
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h4>SentinelOne</h4>
+                    <p>AI-powered endpoint protection</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔥</div>
+                    <h4>SonicWall</h4>
+                    <p>Next-generation firewalls</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">☁️</div>
+                    <h4>Microsoft</h4>
+                    <p>365 security and compliance</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🥷</div>
+                    <h4>NinjaOne</h4>
+                    <p>Unified IT management</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <h4>Check Point</h4>
+                    <p>Advanced threat prevention</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💾</div>
+                    <h4>Veeam</h4>
+                    <p>Backup and disaster recovery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Layers -->
+    <section class="section section-blue">
+        <div class="container">
+            <h2>Defense in Depth</h2>
+            <p class="section-subtitle">
+                Multiple layers of protection ensure that if one defense fails, others are ready to protect your business
+            </p>
+            <div class="layers-diagram">
+                <div class="layer-box">
+                    <div class="layer-number">1</div>
+                    <h4>Perimeter Defense</h4>
+                    <p>Firewalls and network monitoring block threats at the gate</p>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-number">2</div>
+                    <h4>Email Protection</h4>
+                    <p>Stop phishing and malware before they reach your team</p>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-number">3</div>
+                    <h4>Endpoint Security</h4>
+                    <p>Advanced protection on every device your team uses</p>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-number">4</div>
+                    <h4>Identity Controls</h4>
+                    <p>Ensure only authorized users access your systems</p>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-number">5</div>
+                    <h4>Data Protection</h4>
+                    <p>Backup and encryption keep your information safe</p>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-number">6</div>
+                    <h4>Human Training</h4>
+                    <p>Educated employees are your best defense</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>How CS DataSafe Works for You</h2>
+            <p class="section-subtitle">
+                From deployment to daily protection, here's what you can expect
+            </p>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Security Assessment</h3>
+                        <p>We evaluate your current security posture, identify gaps, and create a customized protection plan for your business. This comprehensive review is always free and comes with no obligation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Platform Deployment</h3>
+                        <p>Our engineers install and configure CS DataSafe across your entire environment. We handle the technical complexity while ensuring minimal disruption to your business operations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>24/7 Protection Begins</h3>
+                        <p>Continuous monitoring starts immediately. Whether you're self-managing or we're handling everything, your systems are now protected around the clock with expert oversight.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Ongoing Optimization</h3>
+                        <p>We continuously tune and improve your security posture based on new threats, your business changes, and industry best practices. You get stronger protection over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-blue">
+        <div class="container">
+            <h2>Ready to Simplify Your Security?</h2>
+            <p class="section-subtitle">
+                Choose how you want to get started with CS DataSafe
+            </p>
+            <div class="grid grid-3">
+                <div class="card-blue">
+                    <h3>Free Security Assessment</h3>
+                    <p>Let us evaluate your current security and show you exactly where CS DataSafe can help protect your business better.</p>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Get Assessment</a>
+                </div>
+                <div class="card-blue">
+                    <h3>Custom Demo</h3>
+                    <p>See CS DataSafe in action with a personalized demonstration focused on your specific business needs and challenges.</p>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Schedule Demo</a>
+                </div>
+                <div class="card-blue">
+                    <h3>Pricing Quote</h3>
+                    <p>Get transparent, customized pricing for your exact environment. No hidden fees, no surprises, just clear costs.</p>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Get Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Security Status</a>
+                    <a href="#">Knowledge Base</a>
+                    <a href="#">Submit Ticket</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security Practices</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ sales@csdatasafe.com</p>
+                    <p>📍 Your Business Address</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CS DataSafe. All rights reserved. | A Calsoft Systems Company</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

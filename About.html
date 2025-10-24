@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CS DataSafe - 30+ Years of Technology Expertise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #005A9C 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo .cs {
+            color: white;
+            background: #EF3E42;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .logo .datasafe {
+            color: #A5ACAF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #A5ACAF;
+        }
+
+        .cta-button {
+            background: #EF3E42;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #d63538;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 62, 66, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid #005A9C;
+            color: #005A9C;
+        }
+
+        .cta-secondary:hover {
+            background: #005A9C;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #A5ACAF;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white { background: white; }
+        .section-gray { background: #f8f9fa; }
+        .section-blue { 
+            background: linear-gradient(135deg, #005A9C 0%, #003d6b 100%);
+            color: white;
+        }
+
+        .section h2 {
+            color: #005A9C;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-blue h2 {
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-blue .section-subtitle {
+            color: #A5ACAF;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #005A9C;
+            margin-bottom: 1rem;
+        }
+
+        .card-blue {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .card-blue .card-icon {
+            color: #A5ACAF;
+        }
+
+        .card-blue h4 {
+            color: #A5ACAF;
+        }
+
+        /* Team Members */
+        .team-member {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            background: #005A9C;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .member-name {
+            color: #005A9C;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-title {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid #005A9C;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #005A9C;
+        }
+
+        /* Story Image */
+        .story-image {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 6rem;
+            color: #005A9C;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #A5ACAF;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: #A5ACAF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="cs">CS</span><span class="datasafe">DATASAFE</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href=Solutions.html>Solutions</a></li>
+                <li><a href=Pricing.html>Pricing</a></li>
+                <li><a href=Industries.html>Industries</a></li>
+                <li><a href=About.html>About</a></li>
+                <li><a href=Contact.html>Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>30+ Years of Technology Expertise</h1>
+            <p class="hero-subtitle">
+                Calsoft Systems has been protecting businesses across North America, the UK, and Asia for three decades. As an employee-owned company, we're invested in your long-term success, not just quarterly profits.
+            </p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="grid grid-2" style="align-items: center;">
+                <div>
+                    <h3 style="color: #005A9C; font-size: 1.8rem; margin-bottom: 1rem;">From IT Support to Cybersecurity Leaders</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #666;">
+                        Founded in 1992, Calsoft Systems began as a small IT support company helping local businesses manage their technology. As cyber threats evolved, so did we. Today, CS DataSafe represents three decades of learning, adapting, and staying ahead of the cybersecurity curve.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #666;">
+                        What started as helping businesses fix computers has grown into protecting them from sophisticated cyber attacks. We've weathered every major technology shift – from the early internet days through cloud computing to today's AI-powered threats.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #666;">
+                        Being employee-owned means our team has a genuine stake in your success. We're not here to hit quarterly numbers for shareholders – we're here to build lasting relationships that protect your business for years to come.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div>Businesses Protected</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">30+</div>
+                            <div>Years Experience</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">99.9%</div>
+                            <div>Uptime SLA</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">24/7</div>
+                            <div>Expert Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    🏢
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2>Our Mission & Values</h2>
+            <p class="section-subtitle">
+                Everything we do is guided by our commitment to making cybersecurity simple, effective, and accessible for growing businesses.
+            </p>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To protect growing businesses from cyber threats without the complexity, confusion, or costs of traditional cybersecurity solutions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>Our Vision</h3>
+                    <p>A world where every business – regardless of size or technical expertise – has access to enterprise-grade cybersecurity protection.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Our Promise</h3>
+                    <p>To speak your language, not tech jargon. To be your trusted cybersecurity partner, not just another vendor trying to sell you something.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section section-white">
+        <div class="container">
+            <h2>Leadership Team</h2>
+            <p class="section-subtitle">
+                Meet the experienced professionals who lead CS DataSafe and guide our cybersecurity strategy.
+            </p>
+            <div class="grid grid-4">
+                <div class="team-member">
+                    <div class="member-photo">👨‍💼</div>
+                    <div class="member-name">John Smith</div>
+                    <div class="member-title">Chief Executive Officer</div>
+                    <p>25+ years in technology leadership. John founded CS DataSafe with the vision of making enterprise-grade cybersecurity accessible to growing businesses.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👩‍💻</div>
+                    <div class="member-name">Sarah Johnson</div>
+                    <div class="member-title">Chief Information Security Officer</div>
+                    <p>Former cybersecurity consultant with expertise in compliance frameworks. Sarah leads our security strategy and incident response capabilities.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👨‍🔬</div>
+                    <div class="member-name">Michael Chen</div>
+                    <div class="member-title">VP of Engineering</div>
+                    <p>Expert in security platform development and integration. Michael ensures CS DataSafe delivers cutting-edge protection with seamless user experience.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👩‍💼</div>
+                    <div class="member-name">Lisa Rodriguez</div>
+                    <div class="member-title">VP of Customer Success</div>
+                    <p>Dedicated to ensuring every client gets maximum value from CS DataSafe. Lisa leads our customer support and managed services teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section class="section section-blue">
+        <div class="container">
+            <h2>What Drives Us</h2>
+            <p class="section-subtitle">
+                Our core values shape every decision we make and every interaction we have with clients.
+            </p>
+            <div class="grid grid-4">
+                <div class="card-blue">
+                    <div class="card-icon">🗣️</div>
+                    <h4>Transparency</h4>
+                    <p>No hidden fees, no confusing jargon, no surprise costs. We believe in honest, straightforward communication about cybersecurity.</p>
+                </div>
+                <div class="card-blue">
+                    <div class="card-icon">🏆</div>
+                    <h4>Excellence</h4>
+                    <p>We hold ourselves to the highest standards in cybersecurity protection, customer service, and technical expertise.</p>
+                </div>
+                <div class="card-blue">
+                    <div class="card-icon">🚀</div>
+                    <h4>Innovation</h4>
+                    <p>We continuously evolve our platform and services to stay ahead of emerging threats and industry changes.</p>
+                </div>
+                <div class="card-blue">
+                    <div class="card-icon">🤝</div>
+                    <h4>Partnership</h4>
+                    <p>We see ourselves as an extension of your team, not just another vendor. Your success is our success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-white">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2>Ready to Work Together?</h2>
+                <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                    Experience the difference that 30+ years of expertise makes. Let us show you how CS DataSafe can protect your business with the clarity and simplicity you deserve.
+                </p>
+                <a href="#" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem; margin-right: 1rem;">Get Free Assessment</a>
+                <a href="#" class="cta-button cta-secondary" style="font-size: 1.2rem; padding: 1rem 2rem;">Contact Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Security Status</a>
+                    <a href="#">Knowledge Base</a>
+                    <a href="#">Submit Ticket</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security Practices</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ sales@csdatasafe.com</p>
+                    <p>📍 Your Business Address</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CS DataSafe. All rights reserved. | A Calsoft Systems Company</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
