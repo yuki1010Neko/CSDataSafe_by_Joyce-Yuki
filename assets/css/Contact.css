@@ -62,7 +62,10 @@ nav {
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: #A5ACAF;
+    color: #005A9C;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 .cta-button {
