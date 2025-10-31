@@ -127,13 +127,13 @@ nav {
 
 .cta-secondary {
     background: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #005A9C;
+    color: #005A9C;
 }
 
 .cta-secondary:hover {
-    background: white;
-    color: #005A9C;
+    background: #005A9C;
+    color: white;
 }
 
 .trust-strip {
