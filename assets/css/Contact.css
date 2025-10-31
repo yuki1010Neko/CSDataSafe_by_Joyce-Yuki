@@ -62,8 +62,8 @@ nav {
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: #005A9C;
-    background: white;
+    color: #A5ACAF;
+    background: rgba(255, 255, 255, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 5px;
 }
